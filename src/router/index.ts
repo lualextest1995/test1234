@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Home from '../pages/Home.vue'
+import Home from '../views/Home.vue'
 import data from '../assets/data'
 
 const link = data.UserMenu.map((i: any) =>
@@ -8,12 +8,12 @@ const link = data.UserMenu.map((i: any) =>
       ? p.subFuns.map((item: any) => ({
           path: `/${item.FuncId}`,
           name: item.FuncName,
-          component: () => import(`../pages/${item.FuncId.slice(0, 2)}/${item.FuncId}.vue`)
+          component: () => import(`../views/${item.FuncId.slice(0, 2)}/${item.FuncId}.vue`)
         }))
       : {
           path: `/${p.FuncId}`,
           name: p.FuncName,
-          component: () => import(`../pages/${p.FuncId.slice(0, 2)}/${p.FuncId}.vue`)
+          component: () => import(`../views/${p.FuncId.slice(0, 2)}/${p.FuncId}.vue`)
         }
   )
 ).flat(2)
